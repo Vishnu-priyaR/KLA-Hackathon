@@ -1,8 +1,11 @@
 import numpy as np 
 import math
-d=int(input("Enter the diameter : "))
-n=int(input("Enter the Number Of Points : "))
-angle=eval(input("Enter the angle: "))
+f=open("Testcase1.txt","r")
+data=[]
+for line in f:
+    data.append(line.split(":")[1])
+d,n,angle=int(data[0]),int(data[1]),int(data[2])
+print(d,n,angle)
 r = d / 2
 if angle:
     angle_rad = math.radians(angle)
