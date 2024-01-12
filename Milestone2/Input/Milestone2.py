@@ -1,5 +1,8 @@
 import math
-f=open("Testcase1.txt","r")
+
+def check(i,j):
+    return math.sqrt((i - shift[0]) ** 2 + (j - shift[1]) ** 2) <r and (i,j) not in llc
+f=open("Testcase3.txt","r")
 data=[]
 for line in f:
     l=line.split(":")[1]
@@ -18,13 +21,7 @@ for i in range(-d,d+1,l):
     for j in range(-d,d+1,b):
         j+=shift[1]
         print(i,j)
-        if math.sqrt((i - shift[0]) ** 2 + (j - shift[1]) ** 2) <r and (i,j) not in llc:
-            llc.append((i,j))
-        elif math.sqrt((i - shift[0]) ** 2 + (j+b - shift[1]) ** 2) <r and (i,j+b) not in llc:
-            llc.append((i,j))
-        elif math.sqrt((i+l - shift[0]) ** 2 + (j - shift[1]) ** 2) <r and (i+l,j) not in llc:
-            llc.append((i,j))
-        elif math.sqrt((i+l - shift[0]) ** 2 + (j+b - shift[1]) ** 2) <r and (i+l,j+b) not in llc:
+        if check(i,j) or check(i,j+b) or check(i+l,j) or check(i+l,j+b):
             llc.append((i,j))
 print(len(llc),llc)
 diff=[ref[0]//l,ref[1]//b]
