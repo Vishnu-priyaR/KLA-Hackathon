@@ -1,5 +1,5 @@
 import math
-'''f=open("Testcase4.txt","r")
+f=open("Testcase1.txt","r")
 data=[]
 for line in f:
     l=line.split(":")[1]
@@ -8,16 +8,16 @@ for line in f:
         data.append(l.split("x")[1])
     else:
         data.append(line.split(":")[1])
-d,l,b,shift,ref=int(data[0]),int(data[1]),int(data[2]),tuple(map(int,data[3][1:-2].split(','))),tuple(map(int,data[4][1:-1].split(',')))'''
-d,l,b,shift,ref=300,24,70,(5,38),(-7,3)
+d,l,b,shift,ref=int(data[0]),int(data[1]),int(data[2]),tuple(map(int,data[3][1:-2].split(','))),tuple(map(int,data[4][1:-1].split(',')))
+#d,l,b,shift,ref=300,24,70,(5,38),(-7,3)
 r=d/2
 llc=[]
 val=int(r)
 for i in range(-d,d+1,l):
     i+=shift[0]
     for j in range(-d,d+1,b):
-        print(i,j)
         j+=shift[1]
+        print(i,j)
         if math.sqrt((i - shift[0]) ** 2 + (j - shift[1]) ** 2) <r and (i,j) not in llc:
             llc.append((i,j))
         elif math.sqrt((i - shift[0]) ** 2 + (j+b - shift[1]) ** 2) <r and (i,j+b) not in llc:
