@@ -16,7 +16,6 @@ else:
 points=np.linspace(start=[-x,-y], stop=[x,y], num=n)
 print(points)
 f=open("output.txt","w")
-x,y=[],[]
 for i in points:
     f.write(str(tuple(i))+'\n')
 f.close()
